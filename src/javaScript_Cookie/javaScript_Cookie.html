@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>原生javaScript的cookie操作</title>
+    </head>
+    <body>
+        <header>
+            <h1>网页Cookie值</h1>
+            <div id="cookiePanel"></div>
+        </header>
+        <section>
+            <h1>操作</h1>
+            <div id="buttonPanel">
+                <form >
+                    <table>
+                        <caption>操作</caption>
+                        <thead>
+                            <tr>
+                                <td>按钮</td>
+                                <td>值</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><button type='button'>cookie1</button></td>
+                                <td><input type="text"/></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><button  type='button'>cookie2</button></td>
+                                <td><input type="text"/></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+        </section>
+        <footer></footer>
+        <script type="text/javascript">
+            function getCookies(){
+                "use strict";
+                let cookies=document.cookie;
+                for(let i in cookies){
+                    console.log(i);
+                    console.log(cookies[i]);
+                }
+            }
+            console.log(document.getElementById("buttonPanel"));
+            <!-- let cookiePanel=document.getElementByID("cookiePanel"); -->
+            <!-- let cookieList=document.createElement("ul"); -->
+            let buttons=document.getElementsByTagName("button");
+
+            console.log(buttons);
+            for(let i=0;i<buttons.length;i++){
+
+                buttons[i].addEventListener("click",function(){
+                    setCookie("id","tim",60*3);
+
+                })
+
+            }
+            function setCookie(key,value,expire){
+                let d=new Date();
+                d.setTime(d.getTime()+expire*1000);
+                document.cookie=key+"="+value+";expire="+d.toUTCString();
+            }
+
+            getCookies();
+        </script>
+    </body>
+</html>
