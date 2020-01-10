@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
     <html>
 
     <head>
@@ -10,8 +10,14 @@
     <body>
 
         <script type="text/javascript">
+            debugger;
             var div=$("<div><h1>hello world</h1></div>");
             $('body').append(div);
+            $(function(){
+                $('div').on('click',function(){
+                    alert('hello');
+                })
+            });
         </script>
     </body>
 
