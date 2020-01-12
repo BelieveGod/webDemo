@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>探究js代码错误是否终端程序</title>
+</head>
+<body>
+	<button id='btn' type='button'>click</button>
+	<script>
+		function doError(){
+			console.log("3...");
+			showTime();
+		}
+		var btn=document.getElementById("btn");
+		btn.addEventListener("click",function(){
+			console.log("1...");
+			showTime();
+		})
+
+		// btn.click();
+		console.log("2...");
+		doError();
+		console.log("4...")
+
+	</script>
+</body>
+</html>
